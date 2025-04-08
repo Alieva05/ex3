@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрационная форма</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+        <form method="post" action="submit.cgi">
+            <div class="form-group">
+                <label for="fullname">ФИО:</label>
+                <input type="text" id="fullname" name="fullname">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate">Дата рождения:</label>
+                <input type="date" id="birthdate" name="birthdate">
+            </div>
+
+            <div class="form-group">
+                <label>Пол:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gender" value="Man" checked>
+                        Мужской
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="Woman">
+                        Женский
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="languages">Любимый язык программирования:</label>
+                <select id="languages" name="languages" multiple size="4">
+                    <option value="pascal">Pascal</option>
+                    <option value="c">C</option>
+                    <option value="cpp">C++</option>
+                    <option value="js">JavaScript</option>
+                    <option value="php">PHP</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="haskell">Haskell</option>
+                    <option value="clojure">Clojure</option>
+                    <option value="prolog">Prolog</option>
+                    <option value="scala">Scala</option>
+                    <option value="go">Go</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bio">Биография:</label>
+                <textarea id="bio" name="bio"></textarea>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" name = "check" id="agreement">
+                <label for="agreement">С контрактом ознакомлен(а)</label>
+            </div>
+
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        if (error) {
+            alert(error);
+        }
+    </script>
+</body>
+</html>
